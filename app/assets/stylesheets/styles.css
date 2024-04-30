@@ -1,0 +1,193 @@
+/* Styles de base pour la mise en page et le centrage */
+body, html {
+  /*height: 100%;*/
+  /*margin: 0;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.body-content{
+  padding: 0px;
+}
+
+/* Conteneur principal pour les pages */
+.container {
+  padding: 48px;
+  text-align: center;
+}
+
+/* Styles pour les formulaires et les boutons */
+.form-control, .btn-primary, .btn-secondary, .btn, .blue-button, .delete-button, .form-submit {
+  height: 35px;
+  width: 90%;
+  max-width: 250px;
+  margin: 2px auto;
+  display: block;
+  text-align: center;
+}
+
+
+.blue-button, .delete-button, .btn, .form-submit {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 8px 12px; /* Taille réduite pour les boutons */
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px; /* Taille de police réduite pour les boutons */
+  cursor: pointer;
+
+}
+
+.blue-button:hover, .delete-button:hover, .form-submit:hover {
+  background-color: darkblue;
+}
+
+/* Conteneur pour les boutons de connexion et de déconnexion */
+.auth-buttons {
+  display: flex;
+  justify-content: center; /* Centrage horizontal des boutons */
+  align-items: center; /* Centrage vertical des boutons */
+  gap: 10px; /* Espacement entre les boutons */
+  margin: 0 10px;           /* Espace autour des boutons pour ne pas qu'ils soient collés */
+}
+
+.header {
+  /*display: flex;
+  justify-content: center; */ /* Centre horizontalement les éléments dans le header */
+  align-items: center;      /* Centre verticalement les éléments dans le header */
+  /*height: 0px;*/           /* Hauteur fixe pour le header, ajustez selon vos besoins */
+}
+
+/* Styles généraux pour les boutons (si nécessaire) */
+.btn {
+  padding: 10px 25px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; /* Supprimer le soulignement si les boutons sont des liens */
+  
+}
+
+
+.btn:hover {
+  background-color: #003a80;
+}
+
+/* Assurez-vous que les boutons sont bien visibles sur toutes les pages */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Assure le centrage vertical général */
+  align-items: center; /* Assure le centrage horizontal général */
+  min-height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+}
+
+
+/* Styles spécifiques pour la mise en forme des tables et des colonnes sur différents appareils */
+.reservations-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reservations-table th, .reservations-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.reservations-table th {
+  background-color: #0056b3;
+}
+
+/* Media Queries pour l'adaptation sur les appareils mobiles et tablettes */
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 35px;
+  }
+  .reservations-table {
+    width: 100%;
+  }
+  .reservations-table th:not(.essential), .reservations-table td:not(.essential) {
+    display: none;
+  }
+  .reservations-table th.essential, .reservations-table td.essential {
+    display: table-cell;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 20px;
+  }
+  .reservations-table th:nth-child(2), .reservations-table td:nth-child(2) {
+    display: none; /* Cacher certaines informations sur les tablettes */
+  }
+  .reservations-table th:nth-child(6), .reservations-table td:nth-child(6) {
+    display: table-cell; /* Assurez-vous que le nom du réservataire est visible */
+  }
+}
+
+/* Styles additionnels pour les éléments spécifiques des formulaires */
+.login-container, .contact-form-container, .login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+.login-form, .contact-form-container {
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.form-field {
+  width: 80%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-label, .form-input, .form-checkbox, .checkbox-label {
+  width: 90%;
+  margin: auto;
+}
+
+.form-field.checkbox {
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-actions {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-submit {
+  width: 50%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #0056b3;
+}
+
+.form-submit:hover {
+  background-color: #003a80;
+}
+
+.form-input[type="email"], .form-input[type="Password"] {
+  padding: 16px;
+}
+

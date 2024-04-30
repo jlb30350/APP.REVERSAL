@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-center">
+    <div class="w-75">
+      <h6 class="mb-2">Modification de votre réservation</h6>
+
+      <%= form_with(model: @reservation, local: true, html: { class: "needs-validation", novalidate: "" }) do |form| %>
+        <% if @reservation.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <h2><%= pluralize(@reservation.errors.count, "erreur") %> a empêché cette réservation d'être sauvegardée :</h2>
+            <ul>
+              <% @reservation.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <%= form.label :lieu, class: 'form-label' %>
+            <%= form.text_field :lieu, class: 'form-control' %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :salle_id, 'Nom de la Salle', class: 'form-label' %>
+            <%= form.collection_select :salle_id, Salle.all, :id, :name, { prompt: "Sélectionner une salle" }, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <%= form.label :start_time, 'Date et Heure de Début', class: 'form-label' %>
+            <%= form.datetime_select :start_time, {}, class: 'form-control' %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :end_time, 'Date et Heure de Fin', class: 'form-label' %>
+            <%= form.datetime_select :end_time, {}, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :reserver_name, 'Nom du Réservataire', class: 'form-label' %>
+          <%= form.text_field :reserver_name, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :reserver_phone, 'Téléphone du Réservataire', class: 'form-label' %>
+          <%= form.text_field :reserver_phone, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :reserver_email, 'Email du Réservataire', class: 'form-label' %>
+          <%= form.text_field :reserver_email, class: 'form-control' %>
+        </div>
+
+        <!-- Ajoutez d'autres champs ici selon les attributs de votre modèle de réservation -->
+
+        <div class="d-flex justify-content-center">
+          <%= form.submit "Sauvegarder", class: "btn btn-primary me-2" %>
+          <%= link_to 'Retour', reservations_path, class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
